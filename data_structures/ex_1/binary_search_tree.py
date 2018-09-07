@@ -18,25 +18,35 @@ class BinarySearchTree:
     #Iterative
     
     stack = [] # initialize a list to be our stack
-    
     stack.append(self) # add the root node to the stack
     
     while len(stack): # loop as long as we have elements in the stack
-     
       current_node = stack.pop()  # pop off the stack
      
       if current_node.right:  # check if the popped-off node has a right child
-        
         stack.append(current_node.right)  # add the right child to the stack
         
-        if current_node.left: # check if the popped-off node has a left child
-         
-          stack.append(current_node.left)  # add the left child to the stack
+      if current_node.left: # check if the popped-off node has a left child
+        stack.append(current_node.left)  # add the left child to the stack
           
         cb(current_node.value) # invoke the cb on the popped-off node
 
   def breadth_first_for_each(self, cb):
-    pass
+    # Iterative implementation
+    stack = [] # initialize a list to be our stack
+    stack.append(self) # add the root node to the stack
+
+    while len(stack): #pop off the stack
+      current_node = stack.pop() # check if the popped-off node has a left child
+
+      if current_node.right: # check if the popped off node has a right child
+        stack.append(current_node.right) # add the right child to the stack
+
+      if current_node.left: # check if the popped-off node has a left child
+        stack.append(current_node.left) # add the left child to the stack
+        
+    cb(current_node.value) # invoke the cb on the popped-off node
+
 
   def insert(self, value):
     new_tree = BinarySearchTree(value)
