@@ -7,13 +7,7 @@ def heapsort(arr):
     sorter.append(newheap.delete())
   sorter.sort()
   return sorter
-
-
   
-  
-
- 
-
 class Heap:
   def __init__(self):
     self.storage = []
